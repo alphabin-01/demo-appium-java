@@ -21,7 +21,7 @@ public  class BaseTest {
     public static void setUpAppium() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         setCapability(desiredCapabilities);
-        driver = new AndroidDriver(new URL(APPIUM_SERVER_URL),desiredCapabilities);
+        driver = new AndroidDriver<AndroidElement>(new URL(APPIUM_SERVER_URL),desiredCapabilities);
     }
 
     public static void setCapability(DesiredCapabilities desiredCapabilities){

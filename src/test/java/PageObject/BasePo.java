@@ -10,7 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -33,21 +32,7 @@ public abstract class BasePo extends BaseTest {
     public void initElements(){
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(Implicit_Wait)),this);
     }
+
     public void loadProperties(){
     }
-
-    protected void waitForVisibilityOf(By by, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
-    protected boolean isElementPresent(MobileElement element, int timeout){
-        try{
-            WebDriverWait wait = new WebDriverWait(driver, timeout);
-            wait.until(ExpectedConditions.visibilityOf(element));
-            return true;
-        }catch(Exception e){
-            return false;
-        }
-    }
-
 }

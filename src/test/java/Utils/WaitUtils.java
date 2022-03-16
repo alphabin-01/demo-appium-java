@@ -45,7 +45,7 @@ public class WaitUtils {
     }
 
 
-    public void waitForElementToBeVisible(final MobileElement element, final AndroidDriver driver) {
+    public void waitForElementToBeVisible(final WebElement element, final WebDriver driver) {
         long s = System.currentTimeMillis();
         new WebDriverWait(driver, this.explicitWaitDefault).until(ExpectedConditions.visibilityOf(element));
     }

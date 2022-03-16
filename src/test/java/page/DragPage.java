@@ -8,10 +8,10 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Point;
-
 import java.time.Duration;
 
 public class DragPage extends BasePo {
+
     public DragPage(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
@@ -66,10 +66,15 @@ public class DragPage extends BasePo {
         dragsAndDropFunction(drag8x,drop8x);
         dragsAndDropFunction(drag9x,drop9x);
     }
+
     public void dragsAndDropFunction(Point Drag, Point Drop){
         TouchAction action = new TouchAction(driver);
         action.press(PointOption.point(Drag))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
-                .moveTo(PointOption.point(Drop)).release().perform();
+              .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+              .moveTo(PointOption.point(Drop)).release().perform();
+    }
+    public void retryButton(){
+        MobileElement retry = driver.findElementByClassName("android.widget.TextView");
+        retry.click();
     }
 }

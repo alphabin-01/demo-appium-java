@@ -8,11 +8,10 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
-
 import java.time.Duration;
 
-
 public class SwipePage extends BasePo {
+
     public SwipePage(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
@@ -35,12 +34,5 @@ public class SwipePage extends BasePo {
                     .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
                     .moveTo(PointOption.point(endX, y)).release().perform();
         }
-//        action.press(PointOption.point(m,y))
-//                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-////                .moveTo(PointOption.point(m,(h-y)));
-//        MobileElement card = driver.findElementByXPath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]\n");
-//        System.out.println("Card Location :"+ card.getLocation());
     }
-
-
 }

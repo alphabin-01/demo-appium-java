@@ -35,11 +35,12 @@ public class TestCases {
         swipePage.swipeHorizantal();
     }
 
-   @Test
+    @Test
     public void dragAndDrops() throws MalformedURLException {
-        BaseTest.setUpAppium();
+       BaseTest.setUpAppium();
         homePage.navigateToDragPage();
         dragPage.dragAndDrop();
+        dragPage.retryButton();
     }
 
 }

@@ -1,20 +1,20 @@
 package page;
 
 import PageObject.BasePo;
-import io.appium.java_client.MobileBy;
+import Utils.WaitUtils;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 public class LoginPage extends BasePo {
+    WaitUtils waitUtils;
 
     public LoginPage(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
+
     public void fillEmailEditText(){
-        String pagesource = driver.getPageSource();
-        System.out.println(pagesource);
-        MobileElement emailTextFiels = driver.findElement(new MobileBy.ByAccessibilityId("input-email"));
+        MobileElement emailTextFiels = driver.findElementByXPath("//android.widget.EditText[@content-desc=\"input-email\"]");
         emailTextFiels.sendKeys("jitaliptl07@gmail.com");
     }
 
@@ -26,10 +26,7 @@ public class LoginPage extends BasePo {
     public void clickToLoginButton(){
         MobileElement loginButton = driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"button-LOGIN\"]/android.view.ViewGroup");
         loginButton.click();
-        String pagesource = driver.getPageSource();
-        System.out.println(pagesource);
         MobileElement popUpMessage = driver.findElementByClassName("android.widget.Button");
         popUpMessage.click();
-
     }
 }
